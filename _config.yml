@@ -1,0 +1,38 @@
+# -----------------------------------------------------------------------------
+# Site
+# -----------------------------------------------------------------------------
+title: Jingwen Yang
+tagline: AI Engineer · Tech Lead
+description: Personal website of Jingwen Yang
+email: jingwenyangwz@gmail.com
+url: https://jingwenyangwz.github.io   # used by the sitemap, robots.txt and the 404 redirect
+baseurl: ""
+
+# -----------------------------------------------------------------------------
+# Links — rendered as chips under the name, in this order.
+# Add or remove a line to change the chips.
+# -----------------------------------------------------------------------------
+links:
+  - { label: CV,             url: /assets/pdf/Jingwen-CV.pdf }
+  - { label: LinkedIn,       url: "https://www.linkedin.com/in/jingwenyangwz" }
+  - { label: GitHub,         url: "https://github.com/jingwenyangwz" }
+  - { label: Email,          url: "mailto:jingwenyangwz@gmail.com" }
+
+# News items live in _data/news.yml.
+# Uncomment to show only the N most recent items (all are shown otherwise).
+news_limit: 4
+
+# -----------------------------------------------------------------------------
+# Jekyll
+# -----------------------------------------------------------------------------
+permalink: /blog/:year/:title/   # keeps the URLs of the two old blog posts
+include: [_pages]
+exclude: [bin, vendor, LICENSE]
+keep_files: [.git]
+plugins: [jekyll-sitemap]
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "assets/**/*.*" }
+    values: { sitemap: false }
