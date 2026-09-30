@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jingwen Yang</title>
+  <meta name="description" content="Personal website of Jingwen Yang">
+  <link rel="canonical" href="https://jingwenyangwz.github.io/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>J</text></svg>">
+
+  <!-- Set the theme before first paint to avoid a flash. -->
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') {
+        t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+    </svg>
+  </button>
+
+  <main class="page">
+    <header class="masthead">
+  <img class="portrait" src="/assets/img/prof_pic.jpg" alt="Jingwen Yang" width="112" height="112">
+  <div>
+    <h1>Jingwen Yang</h1>
+    <p class="tagline">AI Engineer · Tech Lead</p>
+    <nav class="chips" aria-label="Links">
+      <a class="chip" href="https://www.linkedin.com/in/jingwenyangwz" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://github.com/jingwenyangwz" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="mailto:jingwenyangwz@gmail.com">Email</a>
+    </nav>
+  </div>
+</header>
+
+<!-- mailto: does nothing without a mail app, so also copy the address. -->
+<script>
+  document.querySelectorAll('.chip[href^="mailto:"]').forEach(function (a) {
+    var label = a.textContent;
+    a.addEventListener('click', function () {
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(a.href.replace('mailto:', '')).then(function () {
+        a.textContent = 'Copied!';
+        setTimeout(function () { a.textContent = label; }, 1500);
+      });
+    });
+  });
+</script>
+
+<section class="bio">
+  <p>I am an IT consultant and a technical leader at <a href="https://www.netlight.com/">Netlight</a> in Munich, Germany. I build products with AI capabilities and lead teams in adopting agentic software development lifecycle, using automation and guardrails that keep quality high. My approach is iterative and pragmatic. Together with Product and Design, we turn strategy and OKRs into measurable goals and ship from prototype to production to deliver business impact fast.</p>
+
+<p>Before joining Netlight and moving to Germany, I was a Deep Learning Engineer at <a href="https://www.vicomtech.org/">Vicomtech</a> in San Sebastián, Spain. I worked on person re-identification, bringing computer vision research into real-world applications. I obtained my M.Sc. in <a href="http://ipcv.eu/">Image Processing and Computer Vision</a> at the Autonomous University of Madrid (Spain), where my Master’s thesis received the Best Thesis Award at the Spanish Computer Graphics Conference (CEIG) 2022.</p>
+
+<p>I am passionate about the intersection of innovation and entrepreneurship. I enjoy building hobby projects and am currently trying to figure out the commercialization potential of one. Outside of work, I love playing badminton, board games, and computer games (Baldur’s Gate 3 is my favourite).</p>
+
+</section>
+
+<section class="news">
+  <h2>News</h2>
+  <div class="news-item">
+    <time datetime="2026-03-24">Mar 2026</time>
+    <p>Relocated from Hamburg to Munich, Germany!</p>
+  </div>
+  <div class="news-item">
+    <time datetime="2022-07-01">Jul 2022</time>
+    <p>Joined Netlight as an IT Consultant.</p>
+  </div>
+  <div class="news-item">
+    <time datetime="2022-06-15">Jun 2022</time>
+    <p>Relocated from San Sebastian, Spain to Hamburg, Germany!</p>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="page">
+    © 2026 Jingwen Yang
+  </footer>
+
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var root = document.documentElement;
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.classList.add('transition');
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      setTimeout(function () { root.classList.remove('transition'); }, 400);
+    });
+  </script>
+</body>
+</html>
